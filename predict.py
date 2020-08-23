@@ -5,7 +5,7 @@ import numpy as np
 def predict_image(img_url):
     mymod = pickle.load(open('mymodel.p','rb'))
     a = cv.image(img_url)
-    feat = a.getresnet50()
+    feat = a.getmobilenet()
     probList = mymod.predict_proba([feat])[0]
     maxprobind = np.argmax(probList)
     prob = probList[maxprobind]
