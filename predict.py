@@ -8,7 +8,7 @@ cal_df = pd.read_csv('cal-table.csv')
 mymod = pickle.load(open('foodmodel-mobilenet.p','rb'))
 def predict_image(img_url):
     a = cv.image(img_url)
-    feat = a.getresnet50()
+    feat = a.getmobilenet()
     probList = mymod.predict_proba([feat])[0]
     maxprobind = np.argmax(probList)
     prob = probList[maxprobind]
